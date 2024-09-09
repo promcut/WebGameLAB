@@ -22,7 +22,7 @@ public class BulletController : MonoBehaviour
         while(true)
         {
             // transform is the connected game objects Transform component
-            if(transform.position.y <= -0.75f)
+            if(transform.position.y <= -0.5f)
             {
                 // when we want to destroy a game object we can use "gameObject"
                 // --> the whole game object will be removed
@@ -34,5 +34,8 @@ public class BulletController : MonoBehaviour
 
     // Update is called once per frame
     //we could put periodic checking to Update() but it takes too much computing resources...
-
+    /*void Update()
+    {
+        
+    }*/
 }
