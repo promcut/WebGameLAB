@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using TMPro;
 using UnityEngine;
 
 public class PlayerPrefab : MonoBehaviour
@@ -11,8 +13,14 @@ public class PlayerPrefab : MonoBehaviour
     public float gunSpeed;
     public float camSpeed;
     public Transform wall; // parent for all bricks --> wall
+    public int maxBullets;
+    public TMP_Text tmp_EndMsg;
+
     void Start()
     {
+        Time.timeScale = 1; // if 9 almost all frozen
+        gunFlag = true;
+        tmp_EndMsg.enabled = false; //hide the engmsg in the begining
         StartCoroutine(setGunFlag());
     }
 
@@ -52,6 +60,5 @@ public class PlayerPrefab : MonoBehaviour
         const float z = 0;
         Vector3 trans = new Vector3(x, y, z);
         transform.Translate(trans * camSpeed);
-
     }
 }
